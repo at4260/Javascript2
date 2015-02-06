@@ -32,10 +32,38 @@
         <div class="house col-md-2">
             Dumbledore's Army
         </div>
+        <div class="form">
+            <input type="number" id="student_count">
+            <button id="set_student_count">Set Student Count</button>
+            <div id="count"></div>
+            <!-- <input type="text" id="students"> -->
+        </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var studentCount = 0;
+        var button = document.getElementById("set_student_count");
+
+        button.addEventListener('click', function(){
+            var count = document.getElementById("count");
+            var usercount = parseInt(document.getElementById("student_count").value);
+
+            if (isNaN(usercount) || usercount == 0){
+                usercount = 0;
+            };
+                
+            studentCount += usercount;
+            count.innerHTML = studentCount;
+            document.getElementById("student_count").value = 0;
+
+
+        });
+    </script>
+
+
   </body>
 </html>
